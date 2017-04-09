@@ -1,4 +1,8 @@
+import java.io.IOException;
+
 public class DD<T> implements Deque<T> {
+	
+	
 	
     //Instantiates the front and end nodes, as well as the size variable
     private DLLNode<T> front, end;
@@ -78,24 +82,34 @@ public class DD<T> implements Deque<T> {
 
     //removeFirst(), removes the node at the front
     public T removeFirst() {
-	if (size == 0){ //checks if the nodes are empty or not
-	    throw new IOException("Why try removing something when there's nothing? *mind blown*"); //throws exception
-	}
+	try {
+	
+	
 	T retT = this.getFirst(); //instantiates return value
 	front = front.getNext(); //sets the front to the node after the front node that's going to be removed
 	front.setPrev( null ); //sets the prev node to null for front, removing the former front node
 	return retT;
     }
+	catch (Exception e){
+		System.out.println("--you can't remove something that doesn't exist in removeFirst--");
+		return null; //comment this line out if you want the exception thrown instead of returning an empty string;
+		//throw e;   //uncomment this line if you want the exception thrown
+	}
+	}
 
     //removeLast(), 
     public T removeLast() {
-	if (size == 0){ //checks if the nodes are empty or not
-	    throw new IOException("Why try removing something when there's nothing? *mind blown*"); //throws exception
-	}
+	try {
 	T retT = this.getLast(); //instantiates return value
 	end = end.getPrev(); //sets the end to the node before the front node that's going to be removed
 	end.setNext( null ); //sets the next node to null for end, removing the former end node
 	return retT;
+	}
+	catch(Exception e) {
+		System.out.println("--you can't remove something that doesn't exist in removeLast ---");
+		return null; //comment this line out if you want the exception thrown instead of returning an empty string;
+		//throw e;   //uncomment this line if you want the exception thrown
+	}
     }
     
     //size(), returns size()
