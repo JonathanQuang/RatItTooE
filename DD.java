@@ -1,4 +1,3 @@
-import java.io.IOException;
 
 public class DD<T> implements Deque<T> {
 	
@@ -53,7 +52,7 @@ public class DD<T> implements Deque<T> {
 	    retStr += dummyNode.getCargo(); 
 	    retStr += " --> ";
 	    dummyNode = dummyNode.getNext(); //sets dummy the next value, hence why we instantiated a dummy node,
-		//to prevent front from getting changed to front = end
+	    //to prevent front from getting changed to front = end
 	}
 	return retStr; //returns retStr
     }
@@ -85,30 +84,30 @@ public class DD<T> implements Deque<T> {
 	try {
 	
 	
-	T retT = this.getFirst(); //instantiates return value
-	front = front.getNext(); //sets the front to the node after the front node that's going to be removed
-	front.setPrev( null ); //sets the prev node to null for front, removing the former front node
-	return retT;
-    }
+	    T retT = this.getFirst(); //instantiates return value
+	    front = front.getNext(); //sets the front to the node after the front node that's going to be removed
+	    front.setPrev( null ); //sets the prev node to null for front, removing the former front node
+	    return retT;
+	}
 	catch (Exception e){
-		System.out.println("--you can't remove something that doesn't exist in removeFirst--");
-		return null; //comment this line out if you want the exception thrown instead of returning an empty string;
-		//throw e;   //uncomment this line if you want the exception thrown
+	    System.out.println("--you can't remove something that doesn't exist in removeFirst--");
+	    return null; //comment this line out if you want the exception thrown instead of returning an empty string;
+	    //throw e;   //uncomment this line if you want the exception thrown
 	}
-	}
+    }
 
     //removeLast(), 
     public T removeLast() {
 	try {
-	T retT = this.getLast(); //instantiates return value
-	end = end.getPrev(); //sets the end to the node before the front node that's going to be removed
-	end.setNext( null ); //sets the next node to null for end, removing the former end node
-	return retT;
+	    T retT = this.getLast(); //instantiates return value
+	    end = end.getPrev(); //sets the end to the node before the front node that's going to be removed
+	    end.setNext( null ); //sets the next node to null for end, removing the former end node
+	    return retT;
 	}
 	catch(Exception e) {
-		System.out.println("--you can't remove something that doesn't exist in removeLast ---");
-		return null; //comment this line out if you want the exception thrown instead of returning an empty string;
-		//throw e;   //uncomment this line if you want the exception thrown
+	    System.out.println("--you can't remove something that doesn't exist in removeLast ---");
+	    return null; //comment this line out if you want the exception thrown instead of returning an empty string;
+	    //throw e;   //uncomment this line if you want the exception thrown
 	}
     }
     
